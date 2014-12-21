@@ -1,0 +1,200 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TP3 - Le Responsive Webdesign</title>
+  <link rel="stylesheet" href="css/foundation.css" />
+  <link rel="stylesheet" href="css/normalize.css">
+
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="css/custom.css" />
+
+  <script src="js/vendor/modernizr.js"></script>
+
+</head>
+<body>
+
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="index.html">TP3 - Le Responsive Webdesign</a></h1>
+      </li>
+
+      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+    </ul>
+
+
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+
+      <ul class="right">
+        <li><a href="index.html">Surfaces écrans</a></li>
+        <li><a href="solution-images.html">Images responsives</a></li>
+      </ul>
+
+    </section>
+  </nav>
+
+  <div class="titre2">
+    <center><h1>Quelles solutions pour des images responsives (présent et futur) ?</h1></center>
+
+  </div>
+
+  <!--1er Para-->
+  <div class="row">
+
+
+    <div class=" medium-8 medium-centered columns">
+
+      <p>Un site responsive, c'est cool. Mais ce qui est moins cool, c'est la gestion des images sur toutes les surfaces écrans. Créer des <strong>images responsives</strong> c'est adapter la taille, la résolution, la qualité des images en fonction du support de l'utilisateur. </p>
+
+      <p>Basé sur les dernières statistiques de <a href="http://httparchive.org/interesting.php#bytesperpage" target="_blank">HTTPArchive.org</a>, les images constituent environ 62% du poids total des pages web. Nous pouvons ainsi comprendre facilement que résoudre le problème des images est une priorité majeure et qu'il faut vite trouver une solution stable pour aujourd'hui et demain. Cela permettra donc aux pages web de se charger plus rapidement et donc améliorer considérablement l'<strong>expérience utilisateur</strong>.</p>
+
+      <h1 class="titre_para">Quelles sont les solutions proposées?</h1>
+
+      <h2 class="sous-titre">La balise <code>picture</code></h2>
+
+      <p>Pour notre premier exemple, nous voulons intégrer un site web avec une approche "mobile first". Nous souhaitons à présent afficher l'image <i>"mobile.png"</i> par <b>défaut</b>, l'image <i>"tablet.png"</i> lorsque l'écran de l'utilisateur fait au moins <b>480px</b>, et l'image <i>"desktop.png"</i> pour un écran d'au moins <b>1024px</b>. Nous voulons aussi afficher l'image <i>tablet.png</i> si jamais la balise picture n'est pas prise en compte. Pour cela, nous allons écrire ce petit bout de code:</p>
+
+
+      <textarea rows="7"> <picture>
+       <source srcset="mobile.png">
+         <source media="(min-width: 480px)" srcset="tablet.png">
+           <source media="(min-width: 1024px)" srcset="desktop.png">
+             <img src="tablet.png" alt="Une photo">
+           </picture> </textarea>
+
+           <p></p>
+
+
+           <p> <code>srcset</code>: C'est là que nous spécifions l'URL de l'image que nous voulons afficher. L'attribut permet de spécifier plusieurs URLs à la fois en les séparant par une virgule.<br>
+            <code>media</code>: C'est un media query qui, si évalué à vrai, ira proposer au navigateur d'afficher l'image correspondante située à l'attribut <code>srcset</code>.<br>
+
+            <p>En addition avec ces fonctionnalités, nous pouvons même spécifier une image qui correspondra à la résolution de l'écran de l'utilisateur, notamment dans le cadre d'un écran Retina. Le code correspondant est celui-ci: </p>
+
+            <textarea rows="7"><picture>
+             <source srcset="mobile.png, mobile-hd.png 2x">
+               <source media="(min-width: 480px)" srcset="tablet.png, tablet-hd.png 2x">
+                 <source media="(min-width: 1024px)" srcset="desktop.png, desktop-hd.png 2x">
+                  <img src="tablet.png" alt="Une photo">
+                </picture></textarea>
+
+                <p></p>
+
+                <p>Comme nous pouvons le remarquer, nous avons spécifier plusieurs URLs dans l'attribut <code>srcset</code>. De plus, la deuxième URL est accompagnée des caractères <code>2x</code> séparés par un espace permettant ainsi de viser les utilisateurs ayant un écran HD (résolution 2x) comme le Retina. Le navigateur va d'abord chercher l'élément <code>source</code> qui convient le mieux à l'utilisateur basé sur le media query, puis il regardera la résolution de l'écran et choisira l'image adaptée.</p>
+
+                <p>Pour notre dernier exemple, nous allons voir comment l'attribut <code>size</code> fonctionne. Nous voulons à présent que nos images prennent toute la largeur du navigateur sans se préoccuper de sa véritable taille et de sa résolution. Pour cela, nous pouvons spécifier la taille que nous voulons occuper dans l'attribut <code>srcset</code> tout en voulant cibler des images en fonction de la taille de l'écran. Le code correspondant est celui-ci:</p>
+
+                <textarea rows="5"><picture>
+                 <source sizes="100%" srcset="mobile.png 480w, small-tablet.png 768w, tablet.png 968w, desktop.png 1024w">
+                   <img src="tablet.png" alt="Une photo">
+                 </picture></textarea>
+
+
+                 <p></p>
+
+                 <p><code>size</code>: C'est là que nous spécifions la taille que nous voulons que nos images soient affichées.</p>
+
+                 <p>L'inconvénient, c'est que la compatibilité navigateur n'est pas supportée. Cette méthode n'est seulement qu'une proposition pour le moment. Vous avez toutefois la possibilité d'exploiter cette méthode à l'aide d'un <a href="http://fr.wikipedia.org/wiki/Polyfill" target="_blank">polyfill</a> comme <a href="http://scottjehl.github.io/picturefill/" target="_blank">celui-ci</a>. </p>
+
+                 <h2 class="sous-titre">Utiliser des images SVG</h2>
+
+                 <p>Une deuxième méthode consiste à charger des images SVG qui supportent depuis longtemps les media queries. La plupart des navigateurs supportent les media queries avec le SVG. Le seul soucis repose sur les anciennes versions du navigateur Android qui ne commencent à les supporter qu'à partir de la version 3.0 d'Android.</p>
+
+                 <p>Si nous reprenons notre exemple et l'adaptons avec la méthode SVG, le code HTML sera celui-ci: </p>
+
+                 <textarea rows="2"><img src="lesimagesresponsives.svg" alt="responsives images"></textarea>
+
+                 <p></p>
+
+                 <p>C'est plutôt simple. Maintenant voyons voir le code du fichier svg où toute la magie se passe: </p>
+
+                 <textarea rows="20">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="329">
+                    <title>Les images responsives</title>
+                    <defs>
+                      <style>
+                      image {display: none;}
+                      #small {display: block}
+                      @media screen and (min-width: 480px) and (max-width: 1023px) {
+                        #medium {display: block}
+                        #small {display: none}
+                      }
+                      @media screen and (min-width: 1024px)  {
+                        #big {display: block}
+                        #small {display: none;}
+                      }
+                      </style>
+                    </defs>
+                    <g>
+                      <image id="small"  height="329" width="300" xlink:href="images/mobile.png" />
+                      <image id="medium"    height="329" width="300" xlink:href="images/tablet.png" />
+                      <image id="big"   height="329" width="300" xlink:href="images/desktop.png" />
+                    </g>
+                  </svg>
+                </textarea>
+
+                <p></p>
+
+                <p>Ici, les images sont appelées à l'aide du CSS du fichier en cachant l'image de défaut (mobile.png) et en affichant l'image que nous voulons afficher à tel endroit.</p>
+
+                <p>Le problème de cette méthode est que les 4 PNGs ici se retrouvent téléchargés en même temps, ce qui risque de ralentir le chargement de la page, alors qu'il nous est inutile d'avoir dans notre mémoire ces 4 PNGs. Afin de résoudre cela, nous pouvons plutôt utiliser des images en background comme ceci: </p>
+
+                <textarea rows="20"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 329" preserveAspectRatio="xMidYMid meet">
+                 <title>Les images responsives</title>
+                 <style> 
+                 svg {
+                  background-size: 100% 100%;
+                  background-repeat: no-repeat;
+                } 
+                @media screen and (max-width: 479px) {
+                  svg {background-image: url(images/mobile.png);
+                  }
+                };
+
+                @media screen and (min-width: 480px) and (max-width: 1023px) {
+                  svg {background-image: url(images/tablet.png);}
+                } 
+                @media screen and (min-width: 1024px) {
+                  svg {background-image: url(images/desktop.png);}
+                } 
+                
+
+                </style>
+              </svg>
+            </textarea> 
+
+            
+
+
+            <p></p>
+
+
+
+            <p>Cette méthode nous permet de télécharger uniquement les images que nous avons besoin tout en ne surchargeant pas la bande passante.</p>
+
+            <p>L'inconvénient : SVG n'est pas supporté par IE8 et l'importation des images bitmap externes est bloquée par la "Content Security Policy" de la plupart des navigateurs.</p>
+
+            <p>Au final, il n'existe pas de méthode unique et fiable pour les images responsives. Tout dépends également de votre cas d'usage (le <b>viewport switching</b> : adapter la taille de l’image à celle du viewport ou encore l'<b>art direction </b>consistant à adapter l’image à la taille affichée, par exemple en envoyant une image recadrée autour du sujet important si elle doit s’afficher sur un petit écran plutôt qu’une version redimensionnée de l’image sur laquelle le sujet important sera difficilement visible.). Les deux méthodes proposées sont toutefois pour le moment les plus prometteuses et il faut encore attendre et continuer à tester avant qu'une solution ultime ne soient fixée.</p>
+
+
+            <p></p>
+          </div>
+        </div>
+
+        <footer> 
+          Design & Tutoriel par Phuong Nghi NGUYEN
+        </footer>
+
+
+        <script src="js/vendor/jquery.js"></script>
+        <script src="js/foundation.min.js"></script>
+        <script>
+        $(document).foundation();
+
+        </script>
+
+        </html>

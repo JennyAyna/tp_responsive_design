@@ -1,0 +1,303 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TP3 - Le Responsive Webdesign</title>
+  <link rel="stylesheet" href="css/foundation.css" />
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="css/custom.css" />
+  <script src="js/vendor/modernizr.js"></script>
+</head>
+<body>
+
+
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="index.html">TP3 - Le Responsive Webdesign</a></h1>
+      </li>
+
+      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+    </ul>
+
+
+    <section class="top-bar-section actif">
+      <!-- Right Nav Section -->
+
+      <ul class="right">
+
+
+        <li><a href="index.html">Surfaces écrans</a></li>
+        <li><a href="solution-images.html">Images responsives</a></li>
+      </ul>
+
+    </section>
+  </nav>
+
+  <div class="titre">
+    <center><h1>Comprendre les surfaces écrans</h1></center>
+
+  </div>
+
+  <!-- 1er Para -->
+  <div class="row">
+
+
+    <div class=" medium-8 medium-centered columns"><p>De nos jours, la <strong>navigation sur Internet</strong> se propage de plus en plus vers <strong>divers terminaux</strong> tels que les smartphones, tablettes, ordinateurs et TV. Le véritable défis des intégrateurs web est à présent de permette à son contenu de s'adapter à ces différents supports: c'est ce que nous appelons le <strong>Responsive Webdesign</strong>.</p>
+
+     <img src="img/responsive.jpg" alt="Differents terminaux">
+
+     <p></p>
+
+
+
+
+     <p>Grâce à ce principe, l'utilisateur pourra consulter un même site internet sur n'importe quel écran avec une conception graphique s'adaptant au support, tout en gardant les mêmes informations. Ce tutoriel va nous aider à mieux comprendre les problèmatiques rencontrées sur les différentes surfaces écrans dans le cadre de l'utilisation du RSW.</p>
+
+     <h1 class="titre_para">1/ Comprendre le viewport </h1>
+
+     <p>Admettons que nous voulions accéder au site de l'université sur notre mobile. Afin de comprendre comment le site va s'afficher sur notre mobile il faut au préalable bien assimiler ce qu'est une <strong>surface réelle</strong> et une <strong>surface pixel CSS</strong>. 
+     </p>
+
+
+     <p>Mesurez maintenant l'écran physique de votre téléphone portable et convertissez le en pixel. Ou bien utilisez simplement cet outil : <a href="http://mydevice.io/devices/">mydevice.io/devices</a> afin de connaître la largeur et la hauteur physique de votre écran mobile. Pour ma part, l'écran de mon mobile, Sony Xperia S, mesure 720px de largeur et 1280 de hauteur. On peut donc dire qu'il a une <strong>définition</strong> ou "surface réelle" de 720x1280px. 
+
+
+     </div>
+
+   </div>
+
+
+   <dl class="accordion medium-6 medium-push-3" data-accordion>
+    <dd class="accordion-navigation">
+      <a href="#panel1">Qu'est-ce que la surface <strong>réelle?</strong></a>
+      <div id="panel1" class="content">
+        <p>Le pixel physique est le nombre de pixel qui compose la matrice de l'écran, et qui donne la <strong>définition</strong> réelle de celui-ci.<br>
+          Quelques exemples de surfaces réelles de  Smartphones :</p>
+          <ul>
+            <li>HTC One : 1080x1920px</li>
+            <li>Sony Xperia S : 720x1280px</li>
+            <li>Nokia Lumia 1020 : 768x1280px</li>
+            <li>Samsung Galaxy S : 480x800px</li>
+          </ul>
+        </div>
+      </dd>
+    </dl>
+
+    <p></p>
+
+    <dl class="accordion medium-6 medium-push-3" data-accordion>
+      <dd class="accordion-navigation">
+        <a href="#panel5">À ne pas confondre avec la <strong>résolution ou "pixel density"</strong></a>
+        <div id="panel5" class="content">
+        </p>      <p>La <strong>résolution</strong> (exprimée en dpi ou ppp), est le nombre de pixels pouvant être affichés par pouce (2,54cm) sur un support. Ainsi, plus la résolution est élevée, plus les points sont petits et nombreux, ce qui permet notamment à une image d'être plus fine et plus visible.</p>
+        <ul>
+          <li>Les écrans d'ordinateurs sont habituellement utilisés en 72 ou 75 dpi</li>
+          <li>Les faxs : 200dpi</li>
+          <li>Les imprimantes grand public font entre 360 dpi (qualité normale) et 1400 dpi. Cela permet d'obtenir une qualité tout à fait honorable pour des travaux courants (courrier, rapports...).</li>
+          <li>Les scanners grand public font généralement 300, 600 ou 1200 dpi.
+          </li>
+          <li>Les photocomposeuses et le matériel d'impression professionnel fonctionne bien souvent à 4800 dpi ou plus. C'est indispensable pour avoir des impressions de très bonne qualité, tels que les magazines ou les livres.
+          </li>
+        </ul>
+
+        La qualité d'une image dépendra donc de la résolution du support qui l'accueillera.
+
+      </div>
+    </dd>
+  </dl>
+
+  <!-- 2e Para -->
+  <div class="row">
+    <div class="medium-8 medium-centered columns">
+
+      <p>  Allez maintenant sur le site de l'université avec votre mobile. Vous remarquez qu'il n'occupe pas toute la surface réelle de votre écran. Il existe donc une autre surface sur laquelle votre terminal va fonder son affichage: <strong>la Surface "pixel CSS"</strong>.  Un « pixel CSS » n’est pas égal à un pixel physique. Calculons donc le pixel CSS de notre mobile avec l'outil <a href="http://mydevice.io/devices/" target="_blank">mydevice.io/devices</a>. Ma surface "pixel CSS" est de 360x640px. 
+
+
+      </p>
+
+    </div>
+  </div>
+
+
+  <dl class="accordion medium-6 medium-push-3" data-accordion>
+    <dd class="accordion-navigation">
+      <a href="#panel2">Qu'est ce que la surface <strong>"pixel CSS"</strong>?</a>
+      <div id="panel2" class="content">
+        <p>Le <strong>pixel CSS</strong> se diffère du pixel physique, il n'est pas égal à celui-ci. Appelé device-width (device-height) ou screen.width (screen.height) ou encore "ça dépend", il s'agit du nombre de pixels virtuels que le terminal pense avoir et sur lequel il fonde l'affichage du site internet.
+          Quelques exemples de surfaces réelles de  Smartphones :
+          <ul>
+            <li>HTC One : 360x640px</li>
+            <li>Sony Xperia S : 360x640px </li>
+            <li>Nokia Lumia 1020 : 320x480px</li>
+            <li>Samsung Galaxy S : 320x480px</li>
+          </ul>
+        </p>
+        <img src="img/responsive2.png" alt="les différentes surfaces écrans du terminal">
+
+      </div>
+    </dd>
+  </dl>
+
+  <p></p>
+
+  <dl class="accordion medium-6 medium-push-3" data-accordion>
+    <dd class="accordion-navigation">
+      <a href="#panel4">Comment est-elle calculée? Grâce au <strong>pixel ratio</strong></a>
+      <div id="panel4" class="content">
+        <p>Le <strong>pixel ratio</strong> détermine comment une page est interprétée en CSS et donc sa surface "pixel CSS". Chaque écran a son propre pixel ratio afin d'afficher correctement une page.</p>
+
+        <p>La surface "pixel CSS" est ainsi établie par la formule : <strong>définition-de-l'écran / pixel-ratio</strong>.</p>
+
+        <p>Par exemple, pour le Sony Xperia S = <br>
+          Sa surface réelle (définition) : 720x1280px<br>
+          Son pixel ratio est de : 2<br>
+          Sa surface "pixel CSS" : (720/2) x (1280/2) = 360x640px </p>
+
+
+
+        </p>
+      </div>
+    </dd>
+  </dl>
+
+
+  <div class="row">
+    <div class="medium-8 medium-centered columns">
+
+      <!-- 3e Para -->
+      <p>  Maintenant, nous allons nous attaquer le <strong>viewport</strong> mobile. <br>
+        De nombreux navigateurs mobiles aujourd'hui simulent une vue desktop,
+        affichant les pages en pleine résolution dans un tout petit
+        écran. Une puissante fonctionnalité qui est malheureusement gênante pour le webdesigner.
+      </p>
+
+      <img src="img/responsive3.png" alt="illustration pour comprendre le viewport">
+
+
+    </div>
+  </div>
+
+  <dl class="accordion medium-6 medium-push-3" data-accordion>
+
+    <dd class="accordion-navigation">
+      <a href="#panel3"><strong>Le viewport</strong></a>
+      <div id="panel3" class="content">
+        <p>Celui-ci désigne la <strong>zone de la fenêtre du navigateur</strong>.
+          Les navigateurs mobiles trichent en reconnaissant par défaut une surface de viewport plus élevée que la surface physique réelle en pixels.<br>
+          Par exemple la largeur de viewport par défaut sur Safari mobile est de 980px, elle est de 850px sur Opera, 800px sur un navigateur Android, 1024px sur IE mobile.
+          Pour s'affranchir des tailles de sites minuscules (puisque le mobile affiche une largeur de 980px dans une surface de 320px), il est possible de modifier cette valeur par défaut et d'imposer ses valeurs à l'aide de l'élément HTML - propriétaire - <meta name="viewport"…>, ou selon les spécifications CSS, à l'aide d'une règle-at @viewport.</p>
+
+        </div>
+      </dd>
+    </dl>
+
+    <!-- 4e Para -->
+
+    <div class="row">
+      <div class="medium-8 medium-centered columns">
+
+        <h1 class="titre_para">2/ Utiliser le viewport pour le responsive webdesign</h1>
+
+        <p>Afin de rester le plus honnête possible, il existe une façon de faire en sorte que le navigateur affiche la véritable taille de votre site tout en prenant en compte vos media queries: le meta <strong>viewport</strong>. <br>
+          Lorsqu’il est défini comme <strong>device-width</strong>, le navigateur utilise, simplement, la taille réelle de l’appareil.
+
+
+        </div>
+      </div>
+
+      <dl class="accordion medium-6 medium-push-3" data-accordion>
+
+        <dd class="accordion-navigation">
+          <a href="#panel6">La balise <strong>meta viewport</strong></a>
+          <div id="panel6" class="content">
+            <p>À mettre dans la partie <strong>"head"</strong> de la page html:</p>
+
+            <p>Pour une page web qui occupe toute la <strong>largeur de l'écran</strong>:<br>
+
+              <code>< meta name="viewport" content="width=device-width" />
+              </code></p>
+              <p>
+              </p>
+
+              <p>Afin d'afficher une page web qui occupe toute la largeur de l'écran avec en plus un <strong>niveau de zoom initial</strong> (qui est généralement de 1.0):<br>
+                <code>< meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                </code></p>
+
+                <p></p>
+
+                <p>Pour une page avec une <strong>largeur fixe:</strong> <br>
+
+                  <code>< meta name="viewport" content="width=1020" /></code><br>
+                  La balise a une largeur fixe et affiche la page sans zoom. Bien-sûr adaptez la valeur du width à la largeur du site.</p>
+
+                </p>
+
+
+              </div>
+            </dd>
+          </dl>
+
+          <div class="row">
+            <div class="medium-8 medium-centered columns">
+
+              <iframe width="100%" height="300" src="http://jsfiddle.net/o7uw8mbc/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+              <p></p>
+
+              <p>Dans le CSS de ce code, nous avons prédéfinis un type d'affichage pour une taille de viewport précise. De base, pour un affichage sur un écran 1280*800px (à titre d'exemple), nous voyons 4 carrés bien alignés. Pour les smartphones les plus modernes et les iPads portrait, l'affichage sera modifiée lorsque la largeur du viewport sera à 768px: nous voyons 2 carrés qui se superposent sur 2 autres. Pour les smartphones de première génération maintenant, à partir de 480px de largeur, les carrés s'alignent horizontalement l'un sur l'autre. 
+              </p>
+
+              <p>Essayez de redimensionner la taille de votre navigateur pour voir la magie opérer!</p>
+
+              <p>Mais quelle est l'utilité de la balise si cela marche alors? Afin de le comprendre, nous allons analyser rapidement une page faite entièrement en responsive avec l'aide de Bootstrap. </p>
+
+              <p>La page en question est disponible à <a href="https://etudiant.univ-mlv.fr/~pnguye10/Integration/SansMeta/index.html" target="_blank" >cette adresse</a>.</p>
+
+              <p>Maintenant, redimensionnez là. Cela marche! La page est bien responsive me diriez-vous. Hmm, pas tout à fait, si vous accédez cette page depuis votre mobile vous verrez bien que la page est un imposteur! Nous sommes dans l'obligation de zoomer afin de pouvoir se concentrer sur un contenu en particulier.
+                <br>
+
+                <p>Eh oui, dans le code source de la page, il manque la fameuse balise meta <strong>viewport</strong> que nous avons vu précédemment! À présent, ajoutons là:
+
+                  <a href="https://etudiant.univ-mlv.fr/~pnguye10/Integration/SansMeta/index2.html" target="_blank">Par ici</a><br></p>
+
+
+                  <center><img src="img/photo3.png"></center>
+
+                  <p></p>
+
+
+
+
+
+
+
+
+                  <p>Ce qu'il faut retenir! : 
+                    <ul>
+                      <li>L'importance capitale de la prise en compte du viewport pour réaliser ses pages web responsives</li> 
+                      <li>La balise meta <b>viewport</b> afin que nos modifications soient prisent en compte sur nos mobiles et tout autre surface écran</li>
+                    </ul></p>
+
+
+
+                  </div>
+                </div>
+
+
+                <footer> 
+                  Design & Tutoriel par Phuong Nghi NGUYEN
+                </footer>
+
+
+                <script src="js/vendor/jquery.js"></script>
+                <script src="js/foundation.min.js"></script>
+                <script>
+                $(document).foundation();
+                </script>
+              </body>
+              </html>
